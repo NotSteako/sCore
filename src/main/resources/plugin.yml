@@ -1,0 +1,111 @@
+name: SoupPvP
+version: 1.21.8-port
+author: hieu (ported to 1.21.8 by Emergent E1)
+main: kami.gg.souppvp.SoupPvP
+api-version: '1.21'
+folia-supported: false
+description: SoupPvP gamemode plugin ported to Paper/Leaf 1.21.8
+softdepend:
+  - PlaceholderAPI
+  - DecentHolograms
+  - ViaVersion
+  - ViaBackwards
+  - ViaRewind
+  - Geyser-Spigot
+  - packetevents
+  - Apollo-Bukkit
+  - Apollo
+  - Phoenix
+
+commands:
+  setstatistics:
+    description: Admin statistics command
+    permission: souppvp.admin
+  cuboid:
+    description: Cuboid set command
+    permission: souppvp.admin
+  bounty:
+    description: Bounty command
+  credits:
+    description: Credits command
+    aliases: [credit]
+  pay:
+    description: Pay credits to another player
+  help:
+    description: SoupPvP help / shop
+  soupholo:
+    description: Spawn soup holograms
+    permission: souppvp.admin
+  leave:
+    description: Leave to spawn
+    aliases: [spawn]
+  opleave:
+    description: OP leave
+    aliases: [opspawn]
+    permission: souppvp.admin
+  repair:
+    description: Repair held item
+    aliases: [fix]
+  coinflip:
+    description: Coinflip wager
+    aliases: [wager, cf]
+  free:
+    description: Free kits toggle
+  host:
+    description: Host an event
+    permission: souppvp.admin
+  juggernaut:
+    description: Juggernaut command
+    permission: souppvp.admin
+  killstreak:
+    description: Killstreak menu
+    aliases: [ks]
+  option:
+    description: Options
+    aliases: [options, setting, settings]
+  perks:
+    description: Perks menu
+    aliases: [perk]
+  shop:
+    description: Open the shop menu
+  statistics:
+    description: View your statistics
+    aliases: [statistic, stats, stat]
+  tiers:
+    description: Tiers menu
+    aliases: [tier]
+  sumo:
+    description: Sumo event command
+  build:
+    description: Toggle build mode
+    permission: souppvp.admin
+  guild:
+    description: Guild commands (create, invite, tag, etc.)
+    aliases: [ g ]
+  1v1:
+    description: Join the standalone Duels arena
+    aliases: [ duels ]
+  1v1arena:
+    description: Legacy in-world 1v1 arena
+  duel:
+    description: Challenge another player to a 1v1
+  1v1admin:
+    description: Configure the legacy /1v1 arena spawns
+    permission: souppvp.arena1v1.admin
+  duelsadmin:
+    description: Configure the Duels world spawns
+    permission: souppvp.duels.admin
+  duelsstats:
+    description: View your Duels statistics
+    aliases: [ ds ]
+
+permissions:
+  souppvp.admin:
+    description: Administrative SoupPvP access
+    default: op
+  redrover.host:
+    description: Allows hosting a Red Rover event
+    default: op
+  setlobby:
+    description: Set the lobby location to where you stand
+    permission: souppvp.admin

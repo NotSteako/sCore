@@ -1,0 +1,41 @@
+package kami.gg.souppvp.perk.inherit.tier1;
+
+import kami.gg.souppvp.perk.Perk;
+import kami.gg.souppvp.util.CC;
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class BountyHunterPerk extends Perk {
+
+    @Override
+    public String getName() {
+        return "Bounty Hunter";
+    }
+
+    @Override
+    public List<String> getDescription() {
+        List<String> lore = new ArrayList<>();
+        lore.add(CC.translate("&7See all bounties as red and bold,"));
+        lore.add(CC.translate("&7including trickters."));
+        return lore;
+    }
+
+    @Override
+    public ItemStack getIcon() {
+        return new ItemStack(Material.GOLDEN_SWORD);
+    }
+
+    @Override
+    public int getCost() {
+        return 50;
+    }
+
+    @Override
+    public int getTier() {
+        return 1;
+    }
+
+}

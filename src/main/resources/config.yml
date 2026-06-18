@@ -1,0 +1,91 @@
+# SoupPvP 1.21.8 configuration
+
+MONGO:
+  URI:
+    ENABLED: false
+    CONNECTION: 'mongodb://localhost:27017'
+    DATABASE: SoupPvP
+  HOST: localhost
+  PORT: 27017
+  DATABASE: SoupPvP
+  AUTHENTICATION:
+    ENABLED: false
+    USERNAME: ''
+    PASSWORD: ''
+    AUTHENTICATION-DATABASE: admin
+
+  # RankedTablist Configuration
+
+  # Update interval in ticks (20 ticks = 1 second)
+  update-interval: 40
+
+  # Maximum slots to use in tablist (1-80)
+  max-slots: 80
+
+SPAWN:
+  # Format: world:x:y:z
+  LOCATION-A: world:30:91:30
+  LOCATION-B: world:-30:201:-30
+
+# Lobby teleport target set by /setlobby. Format: world:x:y:z:yaw:pitch
+LOBBY: ''
+
+launchpad:
+  forward-power: 1.6
+  upward-power: 0.4
+
+EVENTS:
+  SUMO:
+    SPECTATOR-SPAWN: world:-10000:89:-10025:0:0.5
+    SPAWN-A: world:-10000:89:-10025:0:0.5
+    SPAWN-B: world:-10000:89:-10025:0:0.5
+  FOURCORNERS:
+    SPECTATOR-SPAWN: world:-10100:89:-10100:0:0.5
+    CORNER-RADIUS: 4.0
+    CORNERS:
+      RED: world:-10090:89:-10100:0:0.5
+      BLUE: world:-10110:89:-10100:0:0.5
+      YELLOW: world:-10100:89:-10090:0:0.5
+      GREEN: world:-10100:89:-10110:0:0.5
+
+
+# Configurable spawn points for the /1v1 Unranked arena.
+# Use /1v1admin set <lobby|spawn1|spawn2> to update these in-game.
+ARENA_1V1:
+  LOBBY:   ''
+  SPAWN-1: ''
+  SPAWN-2: ''
+
+# Guilds — /guild create blocks any name that exactly (case-insensitive)
+# matches an entry below. Edit freely; re-read on plugin start.
+GUILDS:
+  BLOCKED-NAMES:
+    - admin
+    - administrator
+    - owner
+    - staff
+    - mod
+    - moderator
+    - helper
+    - dev
+    - developer
+    - srmod
+    - manager
+    - system
+    - console
+    - server
+    - everyone
+    - none
+    - null
+    - guild
+
+# Standalone Duels world spawn points. The Duels world ("duels") is a
+# completely isolated environment — stats, kills/deaths and combat-tag
+# are never affected here. Use /duelsadmin set <lobby|spawn1|spawn2> to
+# configure these in-game while standing in the desired position.
+DUELS:
+  LOBBY:   ''
+  SPAWN-1: ''
+  SPAWN-2: ''
+
+FREE-KITS: false
