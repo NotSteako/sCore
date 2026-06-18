@@ -39,8 +39,10 @@ import kami.gg.souppvp.events.impl.sumo.SumoListener;
 import kami.gg.souppvp.ffa.listener.FFAPvPListener;
 import kami.gg.souppvp.ffa.listener.FFAWandListener;
 import kami.gg.souppvp.gui.WarpGUI;
+import kami.gg.souppvp.guild.listener.GuildFightListener;
 import kami.gg.souppvp.guild.listener.GuildHexChatHandler;
 
+import kami.gg.souppvp.guild.manager.GuildManager;
 import kami.gg.souppvp.handlers.*;
 import kami.gg.souppvp.juggernaut.JuggernautListener;
 import kami.gg.souppvp.killstreak.KillstreaksHandler;
@@ -140,6 +142,9 @@ public class SoupPvP extends JavaPlugin {
     private GuildsHandler guildsHandler;
     private GuildTeamHandler teamsHandler;
 
+    private GuildManager guildManager;
+    private GuildFightListener guildFightListener;
+
     private PacketBorderHandler packetHandler;
 
 
@@ -163,6 +168,7 @@ public class SoupPvP extends JavaPlugin {
 
 // Database first
         setupDatabase();
+        this.guildManager = new GuildManager(mongoDatabase);
 
 // Core handlers first
         kitsHandler = new KitsHandler();
@@ -324,6 +330,7 @@ public class SoupPvP extends JavaPlugin {
                 .registerSub(new GuildListCommand())
                 .registerSub(new GuildInfoCommand())
                 .registerSub(new GuildStatsCommand())
+                .registerSub(new GuildFightCommand())
                 .registerSub(new GuildTagCommand());
 
         drink.register(new KitEditorCommand(), "kiteditor", "editkit", "ke");
@@ -380,6 +387,10 @@ public class SoupPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PreviewListener(), this);
 
         getServer().getPluginManager().registerEvents(new KitEditorListener(), this);
+
+        this.guildFightListener = new GuildFightListener(this, guildsHandler);
+        getServer().getPluginManager().registerEvents(guildFightListener, this);
+
 
 
     }
